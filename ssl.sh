@@ -87,7 +87,7 @@ msg -bar
          fi
          done
 msg -bar
-msg -ama " $(fun_trans "Agora Presizamos Saber Qual Porta o SSL, Vai Escutar")"
+msg -ama " $(fun_trans "Agora Precisamos Saber Qual Porta o SSL Sera Ativado")"
 msg -bar
     while true; do
     read -p " Puerto SSL: " SSLPORTr
@@ -107,17 +107,17 @@ sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 service stunnel4 restart > /dev/null 2>&1
 /etc/init.d/stunnel4 restart > /dev/null 2>&1
 msg -bar
-msg -ama " $(fun_trans "PORTA AGREGADA COM SUCESSO")"
+msg -ama " $(fun_trans "PORTA ADCIONADA COM SUCESSO")"
 msg -bar
 }
 
 fun_ssl () {
 msg -ama " $(fun_trans "CONFIGURACAO DE SSL STUNNEL*")"
 msg -bar
-echo -ne "\033[1;32m [0] > " && msg -bra "$(fun_trans "Voltar")"
-echo -ne "\033[1;32m [1] > " && msg -azu "$(fun_trans "Adicionar uma porta ")"
-echo -ne "\033[1;32m [2] > " && msg -azu "$(fun_trans "Editar Cliente SSL Stunnel") \033[1;31m(comand nano)"
-echo -ne "\033[1;32m [3] > " && msg -azu "$(fun_trans "Desinstalar SSL Stunnel ")"
+echo -ne "\033[1;32m [1] > " && msg -azu "$(fun_trans "ADCIONAR PORTA ")"
+echo -ne "\033[1;32m [2] > " && msg -azu "$(fun_trans "EDITAR CLIENTE SSL ") \033[1;31m(comand nano)"
+echo -ne "\033[1;32m [3] > " && msg -azu "$(fun_trans "DESINSTALAR SSL ")"
+echo -ne "\033[1;32m [0] > " && msg -bra "$(fun_trans "VOLTARr")"
 msg -bar
 while [[ ${arquivoonlineadm} != @(0|[1-3]) ]]; do
 read -p "[0-3]: " arquivoonlineadm
